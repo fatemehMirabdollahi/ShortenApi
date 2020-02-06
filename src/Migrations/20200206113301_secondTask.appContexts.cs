@@ -2,7 +2,7 @@
 
 namespace secondTask.Migrations
 {
-    public partial class secondTaskAppDbContext : Migration
+    public partial class secondTaskappContexts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,7 +10,7 @@ namespace secondTask.Migrations
                 name: "url",
                 columns: table => new
                 {
-                    Short = table.Column<string>(fixedLength: true, maxLength: 8, nullable: false),
+                    Short = table.Column<string>(nullable: false),
                     Long = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

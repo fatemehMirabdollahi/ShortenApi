@@ -5,7 +5,7 @@ namespace secondTask
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Url> shows { get; set; }
+        public DbSet<Url> urls { get; set; }
         
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
@@ -15,7 +15,7 @@ namespace secondTask
             builder.Entity<Url>().ToTable("url");
             builder.Entity<Url>().HasKey(p => p.Short);
             builder.Entity<Url>().Property(p => p.Long).IsRequired();
-            builder.Entity<Url>().Property(p => p.Short).HasMaxLength(8).IsFixedLength(true).IsRequired();
+            builder.Entity<Url>().Property(p => p.Short).IsRequired();
         
         }
     

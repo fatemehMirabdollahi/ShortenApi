@@ -21,9 +21,7 @@ namespace secondTask.Migrations
             modelBuilder.Entity("secondTask.model.Url", b =>
                 {
                     b.Property<string>("Short")
-                        .HasColumnType("character(8)")
-                        .IsFixedLength(true)
-                        .HasMaxLength(8);
+                        .HasColumnType("text");
 
                     b.Property<string>("Long")
                         .IsRequired()

@@ -9,8 +9,8 @@ using secondTask;
 namespace secondTask.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200205094414_secondTask.AppDbContext")]
-    partial class secondTaskAppDbContext
+    [Migration("20200206113301_secondTask.appContexts")]
+    partial class secondTaskappContexts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,9 +23,7 @@ namespace secondTask.Migrations
             modelBuilder.Entity("secondTask.model.Url", b =>
                 {
                     b.Property<string>("Short")
-                        .HasColumnType("character(8)")
-                        .IsFixedLength(true)
-                        .HasMaxLength(8);
+                        .HasColumnType("text");
 
                     b.Property<string>("Long")
                         .IsRequired()
