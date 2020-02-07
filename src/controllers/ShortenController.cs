@@ -15,23 +15,36 @@ namespace secondTask.Controllers {
 
         [HttpPost]
         public ActionResult<string> Post ([FromBody] Url url) {
-
+            if (Uri.IsWellFormedUriString(url.Long, UriKind.Absolute)==false)
+                return BadRequest();
             StringBuilder shortUrl = new StringBuilder ();
             Random random = new Random ();
-            
-            for (int i = 0; i < 8; i++) {
+            int ch;
 
-                ch = Convert.ToInt32 (Math.Floor (26 * random.NextDouble () + 65));
-                
-                shortUrl.Append (Convert.ToChar(ch));
+            while (true) {
+
+                for (int i = 0; i < 8; i++) {
+
+                    ch = Convert.ToInt32 (Math.Floor (58 * random.NextDouble () + 65));
+                    if (90 < ch && ch < 100) {
+                        i--;
+                        continue;
+                    }
+                    shortUrl.Append (Convert.ToChar (ch));
+
+                }
+
+                url.Short = shortUrl.ToString ();
+                if (dbContext.Find (url.GetType (), url.Short) == null) {
+                    break;
+
+                }
+                shortUrl = new StringBuilder ();
             }
-            //todo add short for url
-            url.Short = url.Long + "short";
+
             dbContext.urls.Add (url);
             dbContext.SaveChanges ();
-
             return url.Short;
-
         }
 
     }
