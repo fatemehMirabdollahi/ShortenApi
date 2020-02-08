@@ -15,7 +15,7 @@ namespace SecondTask.controllers {
 
         [HttpPost]
         public ActionResult<string> PostURl ([FromBody] Url url) {
-
+        
             if (Uri.IsWellFormedUriString (url.Long, UriKind.Absolute) == false)
                 return BadRequest ();
             StringBuilder shortUrl = new StringBuilder ();

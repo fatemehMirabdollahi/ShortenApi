@@ -14,16 +14,16 @@ namespace secondTask {
             };
             new RestAssured ()
                 .Given ()
-                .Name ("lenghtShort")
-                .Header ("Content-Type", "application/json")
-                .Body (body)
+                    .Name ("lenghtShort")
+                    .Header ("Content-Type", "application/json")
+                    .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/urls")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
-                .TestStatus ("test status", re => re == 200)
-                .TestBody ("test body", b => ((String) b.shortUrl).Length == 8)
-                .Assert ("test body")
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 200)
+                    .TestBody ("test body", b => ((String) b.shortUrl).Length == 8)
+                    .Assert ("test body")
+                    .Assert ("test status");
 
         }
 
@@ -102,7 +102,7 @@ namespace secondTask {
         [Fact]
             public void hashTest () {
             var body = new {
-                Long = "https://www.گوگل.com",
+                Long = "http://www.googl#e.com",
                 Short = "da"
             };
             new RestAssured ()
@@ -112,6 +112,7 @@ namespace secondTask {
                     .Body (body)
                 .When ()
                     .Post ("http://localhost:5000/urls")
+                    .Debug()
                 .Then ()
                     .TestStatus ("test status", re => re == 200)
                     .Assert ("test status");

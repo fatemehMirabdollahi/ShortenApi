@@ -25,7 +25,6 @@ namespace SecondTask.controllers {
                     return BadRequest ();
             }
             if (shortUrl.Length < 8 || shortUrl.Length > 8) {
-                Console.WriteLine ("Asd");
                 return BadRequest ();
             }
             try {
