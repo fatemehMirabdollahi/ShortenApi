@@ -11,13 +11,13 @@ namespace secondTask {
 
             new RestAssured ()
                 .Given ()
-                .Name ("short more than 8")
-                .Header ("Content-Type", "application/json")
+                    .Name ("short more than 8")
+                    .Header ("Content-Type", "application/json")
                 .When ()
-                .Get ("http://localhost:5000/Redirect/aaaaaaaaa")
+                    .Get ("http://localhost:5000/Redirect/aaaaaaaaa")
                 .Then ()
-                .TestStatus ("test status", re => re == 400)
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 400)
+                    .Assert ("test status");
 
         }
 
@@ -26,14 +26,13 @@ namespace secondTask {
 
             new RestAssured ()
                 .Given ()
-                .Name ("not found short with number")
-                .Header ("Content-Type", "application/json")
+                    .Name ("not found short with number")
+                    .Header ("Content-Type", "application/json")
                 .When ()
-                .Get ("http://localhost:5000/Redirect/a123fsd4")
-                .Debug()
+                    .Get ("http://localhost:5000/Redirect/a123fsd4")
                 .Then ()
-                .TestStatus ("test status", re => re == 400)
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 400)
+                    .Assert ("test status");
 
         }
 
@@ -42,13 +41,13 @@ namespace secondTask {
 
             new RestAssured ()
                 .Given ()
-                .Name ("not_found_short")
-                .Header ("Content-Type", "application/json")
+                    .Name ("not_found_short")
+                    .Header ("Content-Type", "application/json")
                 .When ()
-                .Get ("http://localhost:5000/Redirect/aaaa")
+                    .Get ("http://localhost:5000/Redirect/aaaa")
                 .Then ()
-                .TestStatus ("test status", re => re == 400)
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 400)
+                    .Assert ("test status");
 
         }
 

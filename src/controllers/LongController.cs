@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -31,8 +30,6 @@ namespace SecondTask.controllers {
             }
             try {
                 Url found = dbContext.urls.Find (shortUrl);
-                Console.WriteLine (found.Long);
-
                 return Redirect (found.Long);
             } catch (Exception) {
 

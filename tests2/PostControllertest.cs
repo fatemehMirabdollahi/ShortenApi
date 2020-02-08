@@ -89,14 +89,14 @@ namespace secondTask {
             };
             new RestAssured ()
                 .Given ()
-                .Name ("persion_test")
-                .Header ("Content-Type", "application/json")
-                .Body (body)
+                    .Name ("persion_test")
+                    .Header ("Content-Type", "application/json")
+                    .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/urls")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
-                .TestStatus ("test status", re => re == 200)
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 200)
+                    .Assert ("test status");
 
         }
         [Fact]
@@ -107,14 +107,14 @@ namespace secondTask {
             };
             new RestAssured ()
                 .Given ()
-                .Name ("hash_test")
-                .Header ("Content-Type", "application/json")
-                .Body (body)
+                    .Name ("hash_test")
+                    .Header ("Content-Type", "application/json")
+                    .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/urls")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
-                .TestStatus ("test status", re => re == 200)
-                .Assert ("test status");
+                    .TestStatus ("test status", re => re == 200)
+                    .Assert ("test status");
 
         }
         
