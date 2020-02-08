@@ -18,7 +18,7 @@ namespace secondTask {
                 .Header ("Content-Type", "application/json")
                 .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/get_shorturl")
+                .Post ("http://localhost:5000/urls")
                 .Then ()
                 .TestStatus ("test status", re => re == 200)
                 .TestBody ("test body", b => ((String) b.shortUrl).Length == 8)
@@ -39,7 +39,7 @@ namespace secondTask {
                     .Header ("Content-Type", "application/json")
                     .Body (body)
                 .When ()
-                    .Post ("http://localhost:5000/get_shorturl")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
                     .TestStatus ("test status", re => re == 400)
                     .Assert ("test status");
@@ -57,7 +57,7 @@ namespace secondTask {
                     .Header ("Content-Type", "application/json")
                     .Body (body)
                 .When ()
-                    .Post ("http://localhost:5000/get_shorturl")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
                     .TestStatus ("test status", re => re == 400)
                     .Assert ("test status");
@@ -75,7 +75,7 @@ namespace secondTask {
                     .Header ("Content-Type", "application/json")
                     .Body (body)
                 .When ()
-                    .Post ("http://localhost:5000/get_shorturl")
+                    .Post ("http://localhost:5000/urls")
                 .Then ()
                     .TestStatus ("test status", re => re == 400)
                     .Assert ("test status");
@@ -93,7 +93,7 @@ namespace secondTask {
                 .Header ("Content-Type", "application/json")
                 .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/get_shorturl")
+                .Post ("http://localhost:5000/urls")
                 .Then ()
                 .TestStatus ("test status", re => re == 200)
                 .Assert ("test status");
@@ -111,7 +111,7 @@ namespace secondTask {
                 .Header ("Content-Type", "application/json")
                 .Body (body)
                 .When ()
-                .Post ("http://localhost:5000/get_shorturl")
+                .Post ("http://localhost:5000/urls")
                 .Then ()
                 .TestStatus ("test status", re => re == 200)
                 .Assert ("test status");

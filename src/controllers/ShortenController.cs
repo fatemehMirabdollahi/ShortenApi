@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SecondTask.Model;
 namespace SecondTask.controllers {
 
-    [Route ("get_shorturl")]
+    [Route ("urls")]
     [ApiController]
 
     public class ShortenUrl : Controller {
