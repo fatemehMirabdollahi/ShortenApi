@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using secondTask.model;
-namespace secondTask.Controllers {
+using SecondTask.Model;
+namespace SecondTask.controllers {
 
-    [Route ("/get_shorturl")]
+    [Route ("get_shorturl")]
     [ApiController]
 
     public class ShortenUrl : Controller {
@@ -14,9 +14,10 @@ namespace secondTask.Controllers {
         }
 
         [HttpPost]
-        public ActionResult<string> Post ([FromBody] Url url) {
-            if (Uri.IsWellFormedUriString(url.Long, UriKind.Absolute)==false)
-                return BadRequest();
+        public ActionResult<string> PostURl ([FromBody] Url url) {
+
+            if (Uri.IsWellFormedUriString (url.Long, UriKind.Absolute) == false)
+                return BadRequest ();
             StringBuilder shortUrl = new StringBuilder ();
             Random random = new Random ();
             int ch;
@@ -44,9 +45,21 @@ namespace secondTask.Controllers {
 
             dbContext.urls.Add (url);
             dbContext.SaveChanges ();
-            return url.Short;
+            Response response = new Response (url.Short);
+            return Ok (response);
         }
 
     }
 
+    class Response {
+        public string shortUrl { get; set; }
+
+        public Response (string response) {
+
+            this.shortUrl = response;
+        }
+        public override string ToString () {
+            return shortUrl;
+        }
+    }
 }

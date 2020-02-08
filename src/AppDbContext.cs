@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using secondTask.model;
+using SecondTask.Model;
 
-namespace secondTask
+namespace SecondTask
 {
     public class AppDbContext : DbContext
     {
