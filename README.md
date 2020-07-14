@@ -1,6 +1,6 @@
 # urlShortenApi
 this is a api project to shorten th url
-##creating database
+## Creating database
 you should add data bases before running the project so run this commands
 ```
 dotnet tool install --global dotnet-ef
